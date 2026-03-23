@@ -1,0 +1,12 @@
+body{
+    background-color: purple;
+}
+h1{
+    color: red;
+    background-color:yellow ;
+}
+/* html {
+    background-color: aqua;
+} */
+
+/* to fill the backgound color dont use th HTML selector (for convenience) */

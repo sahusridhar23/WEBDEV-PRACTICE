@@ -1,0 +1,23 @@
+
+/* universal star selector */
+* {
+    color: pink;
+}
+
+
+/* element selector */
+h1 {
+    color : blue;
+}
+
+/* grouping selector */
+.title,
+#fourthtitle{
+    color: red ;
+}
+
+/* attribute selector */
+[href]{
+    color: green
+}
+

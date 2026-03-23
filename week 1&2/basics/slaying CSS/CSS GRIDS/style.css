@@ -1,0 +1,11 @@
+.item-1, .item-2, .item-3,.item-4{
+    background-color: rgb(255, 128, 128); 
+    border: 10px solid red; 
+    
+}
+.container{
+    /* height: auto;
+    width: auto; */
+    border: 10px solid black;
+    border-radius: 10px  ;
+}
