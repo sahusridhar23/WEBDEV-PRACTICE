@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo Manager</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- header -->
+      <header>
+        <h1>Smart To-Do</h1>
+      </header>
+
+      <hr />
+
+      <main>
+        <div class="input-section">
+          <!-- input -->
+          <label for="input">Add Task</label><br />
+          <input id="input" type="text" placeholder="eg: start project x" />
+          <select id="priority">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+          <input type="date" id="due-date" />
+          <button id="add-btn">Add</button>
+        </div>
+
+        <!-- filters -->
+        <h3>filters</h3>
+        <div class="filters">
+          <button class="filter-btn">All</button>
+          <button class="filter-btn">Completed</button>
+          <button class="filter-btn">Pending</button>
+        </div>
+
+        <!-- task list -->
+        <div class="tasklist-container">
+          <h2>TODO list</h2>
+          <ul id="task-list">
+            <li class="task-item">task1</li>
+            <li class="task-item">task2</li>
+            <li class="task-item">task3</li>
+            <li class="task-item">task4</li>
+            <li class="task-item">task5</li>
+          </ul>
+        </div>
+      </main>
+
+      <hr />
+
+      <!-- footer -->
+      <footer>
+        <p>Developed by Sridhar Sahu</p>
+      </footer>
+    </div>
+  </body>
+</html>
