@@ -323,13 +323,12 @@ main > h3 {
 .taskitem {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 16px 24px;
+  gap: 12px;
+  padding: 14px 20px;
   border-bottom: 1px solid var(--border);
   font-size: 0.88rem;
   color: var(--text-dim);
   transition: background 0.2s;
-  cursor: pointer;
   animation: slideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
   position: relative;
 }
@@ -358,8 +357,80 @@ main > h3 {
   border-color: var(--accent);
 }
 
+/* task text — grows to fill available space */
+.taskitem span:first-of-type {
+  flex: 1;
+  color: var(--text);
+  font-size: 0.88rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* priority badge */
+.taskitem span:nth-of-type(2) {
+  font-size: 0.7rem;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 100px;
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.05);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+/* colour-code priority levels */
+.taskitem span:nth-of-type(2)[data-priority="High"],
+.taskitem:has(span:nth-of-type(2):not(:empty)) span:nth-of-type(2) {
+  /* fallback — JS can add data-priority if desired */
+}
+.taskitem span:nth-of-type(2).high  { color: var(--danger);  border-color: rgba(255,91,91,0.3);  background: rgba(255,91,91,0.08); }
+.taskitem span:nth-of-type(2).medium{ color: var(--warning); border-color: rgba(255,179,71,0.3); background: rgba(255,179,71,0.08); }
+.taskitem span:nth-of-type(2).low   { color: var(--accent);  border-color: rgba(200,245,87,0.3); background: var(--accent-dim); }
+
+/* due date */
+.taskitem span:nth-of-type(3) {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  font-family: 'DM Mono', monospace;
+}
+
+/* ── Delete Button ── */
+.deletebtn {
+  flex-shrink: 0;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s, color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+/* show delete only on row hover */
+.taskitem:hover .deletebtn {
+  opacity: 1;
+}
+
+.deletebtn:hover {
+  color: var(--danger);
+  border-color: rgba(255, 91, 91, 0.3);
+  background: rgba(255, 91, 91, 0.08);
+}
+
+.deletebtn:active {
+  transform: scale(0.95);
+}
+
 /* completed state */
-.taskitem.done {
+.taskitem.done span:first-of-type {
   color: var(--text-muted);
   text-decoration: line-through;
   text-decoration-color: var(--text-muted);
